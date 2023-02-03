@@ -5,6 +5,7 @@
   grid-auto-rows: 48px 26px;
   grid-template-columns: minmax(min-content, 294px) 100%;
   margin: 0 0 0 30px;
+  padding: 0;
   width: 100%;
 }
 
