@@ -1,4 +1,4 @@
 .element__image {
   height: 282px;
-  width: 282px;
+  aspect-ratio: 1 / 1;
 }
