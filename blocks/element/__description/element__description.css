@@ -3,8 +3,8 @@
   background-color: #FFFFFF;
   box-sizing: border-box;
   color: #000000;
-  display: flex;
   column-gap: 10px;
+  display: flex;
   height: 100%;
   margin: 0;
   padding: 0 21px;
