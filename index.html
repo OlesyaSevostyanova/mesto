@@ -11,14 +11,60 @@
     <img class="header__logo" src="images/logo.svg" alt="Место - Россия (логотип)">
   </header>
   <main class="main">
-    <section class="profile">
+    <section class="profile" aria-label="Профиль пользователя">
       <img class="profile__avatar" src="images/profile_avatar.png" alt="Аватар профиля">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" type="button"></button> 
-        <h2 class="profile__description">Исследователь океана</h2>
+        <h3 class="profile__description">Исследователь океана</h2>
       </div> 
       <button class="profile__add-button" type="button"></button>
+    </section>
+    <section class="elements" aria-label="Галерея элементов &quot;Места путешествий&quot; (кароточки с фотографиями и описанием)">
+      <ul class="elements__list">
+        <li class="element">
+          <img class="element__image" src="./images/cards_optimized/alaska-unsplash.png" alt="Аляска">
+          <div class="element__description">
+            <h2 class="element__name">Аляска</h2>
+            <button class="element__like-button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/cards_optimized/china-unsplash.png" alt="Китай">
+          <div class="element__description">
+            <h2 class="element__name">Китай</h2>
+            <button class="element__like-button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/cards_optimized/egypt-unsplash.png" alt="Египет">
+          <div class="element__description">
+            <h2 class="element__name">Египет</h2>
+            <button class="element__like-button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/cards_optimized/london-unsplash.png" alt="Лондон">
+          <div class="element__description">
+            <h2 class="element__name">Лондон</h2>
+            <button class="element__like-button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/cards_optimized/tailand-unsplash.png" alt="Тайланд">
+          <div class="element__description">
+            <h2 class="element__name">Тайланд</h2>
+            <button class="element__like-button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/cards_optimized/сaucasus-unsplash.png" alt="Горы северного Кавказа">
+          <div class="element__description">
+            <h2 class="element__name">Горы северного Кавказа</h2>
+            <button class="element__like-button" type="button"></button>
+          </div>
+        </li>
+      </ul>
     </section>
   </main>
   <footer class="footer">
