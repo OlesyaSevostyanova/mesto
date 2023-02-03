@@ -2,12 +2,12 @@
   max-width: 1280px;
   min-width: 320px;
   font-family: 'Inter','Arial', sans-serif;
-  background-color: #000;
+  background-color: #000000;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: #FFFFFF;
 }
 
 .header {
@@ -130,7 +130,7 @@
   background-position: center;
   background-image: url(../images/pencil_icon.svg);
   background-color: transparent;
-  border: 1px solid #fff;
+  border: 1px solid #FFFFFF;
   margin: 0 0 calc(24px / 3);
   cursor: pointer;
   width: 24px;
@@ -155,7 +155,7 @@
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 2px;
-  border: 2px solid #fff;
+  border: 2px solid #FFFFFF;
   box-sizing: border-box;
   cursor: pointer;
   flex-shrink: 0;
@@ -174,5 +174,81 @@
   }
 }
 
+.elements {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+}
 
+@media screen and (max-width: 880px) {
+  .elements  {
+    padding: 0 27px;
+  }
+}
 
+.elements__list {
+  align-items: center;
+  display: grid;
+  gap: 20px 17px;
+  grid-template-columns: repeat(auto-fit, 282px);
+  justify-content: center;
+  list-style-type: none;
+  margin: 50px 0 0;
+  padding: 0;
+  width: 100%;
+}
+
+.element {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 361px;
+  overflow: hidden;
+  width: 282px;
+}
+
+.element__image {
+  height: 282px;
+  width: 282px;
+}
+
+.element__description {
+  align-items: center;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  height: 100%;
+  padding: 0 21px;
+  width: 100%;
+}
+
+.element__name {
+  flex-grow: 1;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  max-width: 215px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.element__like-button {
+  background-color: transparent;
+  background-image: url(../images/heart_icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 19px;
+  width: 22px;
+  margin-left: 2px;
+}
+
+.element__like-button:hover {
+  opacity: 0.6;
+}
