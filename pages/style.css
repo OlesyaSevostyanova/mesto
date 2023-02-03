@@ -73,7 +73,7 @@
   display: grid;
   grid-auto-rows: 48px 26px;
   grid-template-columns: minmax(min-content, 294px) 100%;
-  margin-left: 30px;
+  margin: 0 0 0 30px;
   width: 100%;
 }
 
@@ -83,7 +83,7 @@
     grid-auto-rows: 33px auto;
     grid-template-columns: minmax(min-content, 189px) 24px;
     justify-items: center;
-    margin-top: 26px;
+    margin: 26px 0 0 28px;
     width: auto;
   }
 }
@@ -97,12 +97,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 294px;
 }
 
 @media screen and (max-width: 880px) {
   .profile__name  {
     font-size: 27px;
     line-height: 33px;
+    max-width: 189px;
   }
 }
 
@@ -115,13 +117,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 294px;
 }
 
 @media screen and (max-width: 880px) {
   .profile__description  {
-    margin-top: calc(14px / 2);
     font-size: 14px;
     line-height: 17px;
+    margin-top: calc(14px / 2);
+    max-width: 189px;
   }
 }
 
