@@ -1,7 +1,7 @@
-.popap__close-button {
+.popup__close-button {
   align-self: flex-end;
   background-color: transparent;
-  background-image: url(../images/close_icon.svg);
+  background-image: url(../../../images/close_icon.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -13,13 +13,13 @@
 }
 
 @media screen and (max-width: 880px) {
-  .popap__close-button {
+  .popup__close-button {
     height: 20px;
     width: 20px;
     margin-bottom: 16px;
   }
 }
 
-.popap__close-button:hover {
+.popup__close-button:hover {
   opacity: 0.6;
 }

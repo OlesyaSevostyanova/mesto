@@ -1,4 +1,4 @@
-.popap__form {
+.profile-edit-form {
   background-color: #FFFFFF;
   border-radius: 10px;
   color: #000000;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 880px) {
-  .popap__form {
+  .profile-edit-form {
     width: 282px;
     height: 322px;
     padding: 25px 22px;
