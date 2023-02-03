@@ -1,15 +1,20 @@
 .popup__container {
   align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
   margin: 0;
   padding: 0;
-  width: calc(430px + (32px * 2) + 16px);
+  gap: 8px;
+  grid-template-columns: 32px auto 32px;
+  grid-template-rows: 32px auto 32px;
+  grid-template-areas: " . . close "
+                       " . form . "
+                       " . . . ";
 }
 
 @media screen and (max-width: 880px) {
   .popup__container {
-    width: 282px;
+    display: flex;
+    gap: unset;
+    flex-direction: column;
   }
 }

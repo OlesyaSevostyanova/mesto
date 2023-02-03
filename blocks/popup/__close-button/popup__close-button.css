@@ -8,9 +8,10 @@
   border: none;
   cursor: pointer;
   height: 32px;
-  margin-bottom: 8px;
+  margin: 0;
   padding: 0;
   width: 32px;
+  grid-area: close;
 }
 
 @media screen and (max-width: 880px) {
