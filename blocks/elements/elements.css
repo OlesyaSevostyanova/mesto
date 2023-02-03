@@ -1,0 +1,13 @@
+.elements {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 880px) {
+  .elements  {
+    padding: 0 27px;
+  }
+}

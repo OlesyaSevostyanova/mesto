@@ -1,0 +1,11 @@
+.elements__list {
+  align-items: center;
+  display: grid;
+  gap: 20px 17px;
+  grid-template-columns: repeat(auto-fit, 282px);
+  justify-content: center;
+  list-style-type: none;
+  margin: 50px 0 0;
+  padding: 0;
+  width: 100%;
+}
