@@ -21,50 +21,7 @@
       <button class="profile__add-button" aria-label="Редактировать профиль" type="button"></button>
     </section>
     <section class="elements" aria-label="Галерея элементов &quot;Места путешествий&quot; (кароточки с фотографиями и описанием)">
-      <ul class="elements__list">
-        <li class="element">
-          <img class="element__image" src="./images/cards_optimized/alaska-unsplash.png" alt="Аляска">
-          <div class="element__description">
-            <h2 class="element__name">Аляска</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/cards_optimized/china-unsplash.png" alt="Китай">
-          <div class="element__description">
-            <h2 class="element__name">Китай</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/cards_optimized/egypt-unsplash.png" alt="Египет">
-          <div class="element__description">
-            <h2 class="element__name">Египет</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/cards_optimized/london-unsplash.png" alt="Лондон">
-          <div class="element__description">
-            <h2 class="element__name">Лондон</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/cards_optimized/tailand-unsplash.png" alt="Тайланд">
-          <div class="element__description">
-            <h2 class="element__name">Тайланд</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./images/cards_optimized/сaucasus-unsplash.png" alt="Горы северного Кавказа">
-          <div class="element__description">
-            <h2 class="element__name">Горы северного Кавказа</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </li>
-      </ul>
+      <ul class="elements__list"></ul>
     </section>
   </main>
   <footer class="footer">
@@ -81,6 +38,15 @@
       </form> 
     </div>
   </div>
+  <template id="element-template">
+    <li class="element">
+      <img class="element__image" src="" alt="">
+      <div class="element__description">
+        <h2 class="element__name"></h2>
+        <button class="element__like-button" type="button"></button>
+      </div>
+    </li>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
