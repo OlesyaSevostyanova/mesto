@@ -6,9 +6,9 @@
   gap: 8px;
   grid-template-columns: 32px auto 32px;
   grid-template-rows: 32px auto 32px;
-  grid-template-areas: " . . close "
-                       " . form . "
-                       " . . . ";
+  grid-template-areas: " .    .  close "
+                       " .  popup  . "
+                       " .    .    . ";
 }
 
 @media screen and (max-width: 880px) {

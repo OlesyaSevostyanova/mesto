@@ -27,39 +27,6 @@ const initialCards = [
   }
 ];
 
-// добавление / удаление карточек
-
-const elementsList = document.querySelector(".elements__list");
-const elementTemplate = document.querySelector("#element-template").content;
-
-function cardLikeToggle(evt) {
-  evt.target.classList.toggle("element__like-button_active");
-}
-
-function deleteCard(evt) {
-  evt.target.parentElement.remove();
-}
-
-function createCard(name, link) {
-  const newCard = elementTemplate.querySelector(".element").cloneNode(true);
-
-  const elementImage = newCard.querySelector(".element__image");
-  elementImage.src = link;
-  elementImage.alt = name;
-
-  newCard.querySelector(".element__name").textContent = name;
-
-  newCard.querySelector(".element__like-button").addEventListener('click', cardLikeToggle);
-  newCard.querySelector(".element__trash-button").addEventListener('click', deleteCard);
-
-  elementsList.prepend(newCard);
-}
-
-// Заполняем стартовые карточки
-
-initialCards.forEach(card => createCard(card.name, card.link));
-
-
 // общая функция для всех попапов
 
 function closePopup(evt) {
@@ -117,3 +84,55 @@ function onProfileFormSubmit(evt) {
 profileEditButton.addEventListener('click', openProfileEditPopup);
 profileEditPopupCloseButton.addEventListener('click', closePopup);
 profileEditForm.addEventListener('submit', onProfileFormSubmit);
+
+// попап карточки "с картинкой"
+
+const cardView = document.querySelector(".element-view");
+const cardViewImage = cardView.querySelector(".element-view__image")
+const cardViewName = cardView.querySelector(".element-view__name")
+const cardViewPopup = cardView.closest(".popup");
+const cardViewPopupCloseButton = cardViewPopup.querySelector(".popup__close-button");
+
+function openCardViewPopup(evt) {
+  const elementImage = evt.target;
+  cardViewImage.src = elementImage.src;
+  cardViewImage.alt = elementImage.alt;
+  cardViewName.textContent = elementImage.closest(".element").querySelector(".element__name").textContent;
+  cardViewPopup.classList.add("popup_opened");
+}
+
+cardViewPopupCloseButton.addEventListener('click', closePopup);
+
+// добавление / удаление карточек
+
+const elementsList = document.querySelector(".elements__list");
+const elementTemplate = document.querySelector("#element-template").content;
+
+function cardLikeToggle(evt) {
+  evt.target.classList.toggle("element__like-button_active");
+}
+
+function deleteCard(evt) {
+  evt.target.parentElement.remove();
+}
+
+function createCard(name, link) {
+  const newCard = elementTemplate.querySelector(".element").cloneNode(true);
+
+  const elementImage = newCard.querySelector(".element__image");
+  elementImage.src = link;
+  elementImage.alt = name;
+
+  newCard.querySelector(".element__name").textContent = name;
+
+  newCard.querySelector(".element__like-button").addEventListener('click', cardLikeToggle);
+  newCard.querySelector(".element__trash-button").addEventListener('click', deleteCard);
+
+  newCard.querySelector(".element__image").addEventListener("click", openCardViewPopup);
+
+  elementsList.prepend(newCard);
+}
+
+// Заполняем стартовые карточки
+
+initialCards.forEach(card => createCard(card.name, card.link));

@@ -21,6 +21,9 @@
 @import url(../blocks/element/__like-button/element__like-button.css);
 @import url(../blocks/element/__like-button/_active/element__like-button_active.css);
 @import url(../blocks/element/__trash-button/element__trash-button.css);
+@import url(../blocks/element-view/element-view.css);
+@import url(../blocks/element-view/__image/element-view__image.css);
+@import url(../blocks/element-view/__name/element-view__name.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
