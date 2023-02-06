@@ -51,6 +51,8 @@ function onAddCardFormSubmit(evt) {
     addCardForm.elements["name"].value,
     addCardForm.elements["link"].value
   )
+  addCardForm.elements["name"].value = "",
+  addCardForm.elements["link"].value = ""
   closePopup(evt);
 }
 
