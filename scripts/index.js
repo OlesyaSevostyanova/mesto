@@ -39,6 +39,10 @@ function cardLikeToggle (evt) {
   evt.target.classList.toggle("element__like-button_active");
 }
 
+function deleteCard (evt) {
+  evt.target.parentElement.remove();
+}
+
 function createCard (card) {
   const newCard =  elementTemplate.querySelector(".element").cloneNode(true);
    
@@ -49,6 +53,7 @@ function createCard (card) {
   newCard.querySelector(".element__name").textContent = card.name;
 
   newCard.querySelector(".element__like-button").addEventListener('click', cardLikeToggle);
+  newCard.querySelector(".element__trash-button").addEventListener('click', deleteCard);
 
   elementList.prepend(newCard);
 }
