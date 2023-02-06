@@ -35,6 +35,10 @@ const profilePopupCloseButton = document.querySelector(".popup__close-button");
 const elementList = document.querySelector(".elements__list");
 const elementTemplate = document.querySelector("#element-template").content;
 
+function cardLikeToggle (evt) {
+  evt.target.classList.toggle("element__like-button_active");
+}
+
 function createCard (card) {
   const newCard =  elementTemplate.querySelector(".element").cloneNode(true);
    
@@ -44,11 +48,12 @@ function createCard (card) {
 
   newCard.querySelector(".element__name").textContent = card.name;
 
+  newCard.querySelector(".element__like-button").addEventListener('click', cardLikeToggle);
+
   elementList.prepend(newCard);
 }
 
 initialCards.forEach(card => createCard(card));
-
 
 function openProfileEditPopup () {
   renderPopup();

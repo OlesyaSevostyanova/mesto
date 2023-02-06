@@ -19,6 +19,7 @@
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__name/element__name.css);
 @import url(../blocks/element/__like-button/element__like-button.css);
+@import url(../blocks/element/__like-button/_active/element__like-button_active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
@@ -30,4 +31,3 @@
 @import url(../blocks/popup/__form-input/popup__form-input.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
 @import url(../blocks/profile-edit-form/profile-edit-form.css);
-
