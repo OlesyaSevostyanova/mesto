@@ -41,26 +41,6 @@ document.querySelectorAll(".popup").forEach(popap => {
   popap.querySelector(".popup__close-button").addEventListener('click', () => closePopup(popap));
 });
 
-// попап "Создать место"
-
-const addCardPopup = document.querySelector(".add-card-form-popup");
-const addCardButton = document.querySelector(".profile__add-button");
-const addCardForm = addCardPopup.querySelector("#add-card-form");
-
-function handleAddCardFormSubmit(evt) {
-  evt.preventDefault();
-  createCard(
-    addCardForm.elements["name"].value,
-    addCardForm.elements["link"].value
-  )
-  addCardForm.reset();
-  closePopup(addCardPopup);
-}
-
-addCardButton.addEventListener('click', () => openPoup(addCardPopup));
-addCardForm.addEventListener('submit', handleAddCardFormSubmit);
-
-
 // попап "Редактировать профиль"
 
 const profileEditPopup = document.querySelector(".profile-edit-form-popup");
@@ -105,26 +85,49 @@ function handleImageClick(name, link) {
 const elementsList = document.querySelector(".elements__list");
 const elementTemplate = document.querySelector("#element-template").content;
 
-function createCard(name, link) {
-  const newCard = elementTemplate.querySelector(".element").cloneNode(true);
-  const likeButton = newCard.querySelector(".element__like-button");
-  const trashButtom =  newCard.querySelector(".element__trash-button");
-  const cardImage = newCard.querySelector(".element__image");
-  const cardText = newCard.querySelector(".element__name");
-  const elementImage = newCard.querySelector(".element__image");
+function getCard(name, link) {
+  const cardElement = elementTemplate.querySelector(".element").cloneNode(true);
+  const likeButton = cardElement.querySelector(".element__like-button");
+  const trashButtom = cardElement.querySelector(".element__trash-button");
+  const cardImage = cardElement.querySelector(".element__image");
+  const cardText = cardElement.querySelector(".element__name");
 
-  elementImage.src = link;
-  elementImage.alt = name;
+  cardImage.src = link;
+  cardImage.alt = name;
   cardText.textContent = name;
 
   likeButton.addEventListener('click', () => likeButton.classList.toggle("element__like-button_active"));
 
-  trashButtom.addEventListener('click', () => newCard.remove());
+  trashButtom.addEventListener('click', () => cardElement.remove());
 
   cardImage.addEventListener("click", () => handleImageClick(name, link));
 
+  return cardElement;
+}
+
+function createCard(name, link) {
+  const newCard = getCard(name, link);
   elementsList.prepend(newCard);
 }
+
+// попап "Создать место"
+
+const addCardPopup = document.querySelector(".add-card-form-popup");
+const addCardButton = document.querySelector(".profile__add-button");
+const addCardForm = addCardPopup.querySelector("#add-card-form");
+
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
+  createCard(
+    addCardForm.elements["name"].value,
+    addCardForm.elements["link"].value
+  )
+  addCardForm.reset();
+  closePopup(addCardPopup);
+}
+
+addCardButton.addEventListener('click', () => openPoup(addCardPopup));
+addCardForm.addEventListener('submit', handleAddCardFormSubmit);
 
 // Заполняем стартовые карточки
 
