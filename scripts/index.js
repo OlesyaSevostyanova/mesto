@@ -65,15 +65,15 @@ addCardForm.addEventListener('submit', handleAddCardFormSubmit);
 // попап "Редактировать профиль"
 
 const profileEditPopup = document.querySelector(".profile-edit-form-popup");
-const profileEditButton = document.querySelector(".profile__edit-button");
 const profileEditForm = profileEditPopup.querySelector("#profile-edit-form");
-const profileName = profileEditForm.querySelector(".profile__name");
-const profileDescription = profileEditForm.querySelector(".profile__description");
+const profileEditButton = document.querySelector(".profile__edit-button");
+const profileName = document.querySelector(".profile__name");
+const profileDescription = document.querySelector(".profile__description");
 
-function openProfileEditPopup() {
+function handleProfileEditButtonClick() {
   profileEditForm.elements["name"].value = profileName.textContent;
   profileEditForm.elements["description"].value = profileDescription.textContent;
-  profileEditPopup.classList.add("popup_opened");
+  openPoup(profileEditPopup);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -83,7 +83,7 @@ function handleProfileFormSubmit(evt) {
   closePopup(profileEditPopup);
 }
 
-profileEditButton.addEventListener('click', () => openPoup(profileEditPopup));
+profileEditButton.addEventListener('click', handleProfileEditButtonClick);
 profileEditForm.addEventListener('submit', handleProfileFormSubmit);
 
 // попап карточки "с картинкой"
@@ -94,12 +94,11 @@ const imagePopupName = imagePopup.querySelector(".image-popup__name")
 
 const imagePopupPopupCloseButton = imagePopup.querySelector(".popup__close-button");
 
-function openImagePopup(evt) {
-  const elementImage = evt.target;
-  imagePopupImage.src = elementImage.src;
-  imagePopupImage.alt = elementImage.alt;
-  imagePopupName.textContent = elementImage.closest(".element").querySelector(".element__name").textContent;
-  imagePopup.classList.add("popup_opened");
+function handleImageClick(name, link) {
+  imagePopupImage.src = link;
+  imagePopupImage.alt = name;
+  imagePopupName.textContent = name;
+  openPoup(imagePopup);
 }
 
 // добавление / удаление карточек
@@ -123,7 +122,7 @@ function createCard(name, link) {
 
   trashButtom.addEventListener('click', () => newCard.remove());
 
-  cardImage.addEventListener("click", openImagePopup);
+  cardImage.addEventListener("click", () => handleImageClick(name, link));
 
   elementsList.prepend(newCard);
 }
