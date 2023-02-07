@@ -89,21 +89,21 @@ profileEditForm.addEventListener('submit', onProfileFormSubmit);
 
 // попап карточки "с картинкой"
 
-const cardView = document.querySelector(".element-view");
-const cardViewImage = cardView.querySelector(".element-view__image")
-const cardViewName = cardView.querySelector(".element-view__name")
-const cardViewPopup = cardView.closest(".popup");
-const cardViewPopupCloseButton = cardViewPopup.querySelector(".popup__close-button");
+const imagePopup = document.querySelector(".image-popup");
+const imagePopupImage = imagePopup.querySelector(".image-popup__image")
+const imagePopupName = imagePopup.querySelector(".image-popup__name")
 
-function openCardViewPopup(evt) {
+const imagePopupPopupCloseButton = imagePopup.querySelector(".popup__close-button");
+
+function openImagePopup(evt) {
   const elementImage = evt.target;
-  cardViewImage.src = elementImage.src;
-  cardViewImage.alt = elementImage.alt;
-  cardViewName.textContent = elementImage.closest(".element").querySelector(".element__name").textContent;
-  cardViewPopup.classList.add("popup_opened");
+  imagePopupImage.src = elementImage.src;
+  imagePopupImage.alt = elementImage.alt;
+  imagePopupName.textContent = elementImage.closest(".element").querySelector(".element__name").textContent;
+  imagePopup.classList.add("popup_opened");
 }
 
-cardViewPopupCloseButton.addEventListener('click', closePopup);
+imagePopupPopupCloseButton.addEventListener('click', closePopup);
 
 // добавление / удаление карточек
 
@@ -130,7 +130,7 @@ function createCard(name, link) {
   newCard.querySelector(".element__like-button").addEventListener('click', cardLikeToggle);
   newCard.querySelector(".element__trash-button").addEventListener('click', deleteCard);
 
-  newCard.querySelector(".element__image").addEventListener("click", openCardViewPopup);
+  newCard.querySelector(".element__image").addEventListener("click", openImagePopup);
 
   elementsList.prepend(newCard);
 }
