@@ -107,27 +107,23 @@ function openImagePopup(evt) {
 const elementsList = document.querySelector(".elements__list");
 const elementTemplate = document.querySelector("#element-template").content;
 
-function cardLikeToggle(evt) {
-  evt.target.classList.toggle("element__like-button_active");
-}
-
-function deleteCard(evt) {
-  evt.target.parentElement.remove();
-}
-
 function createCard(name, link) {
   const newCard = elementTemplate.querySelector(".element").cloneNode(true);
-
+  const likeButton = newCard.querySelector(".element__like-button");
+  const trashButtom =  newCard.querySelector(".element__trash-button");
+  const cardImage = newCard.querySelector(".element__image");
+  const cardText = newCard.querySelector(".element__name");
   const elementImage = newCard.querySelector(".element__image");
+
   elementImage.src = link;
   elementImage.alt = name;
+  cardText.textContent = name;
 
-  newCard.querySelector(".element__name").textContent = name;
+  likeButton.addEventListener('click', () => likeButton.classList.toggle("element__like-button_active"));
 
-  newCard.querySelector(".element__like-button").addEventListener('click', cardLikeToggle);
-  newCard.querySelector(".element__trash-button").addEventListener('click', deleteCard);
+  trashButtom.addEventListener('click', () => newCard.remove());
 
-  newCard.querySelector(".element__image").addEventListener("click", openImagePopup);
+  cardImage.addEventListener("click", openImagePopup);
 
   elementsList.prepend(newCard);
 }
