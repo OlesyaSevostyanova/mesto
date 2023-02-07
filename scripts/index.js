@@ -44,7 +44,7 @@ document.querySelectorAll(".popup").forEach(popap => {
 // попап "Редактировать профиль"
 
 const profileEditPopup = document.querySelector(".profile-edit-form-popup");
-const profileEditForm = profileEditPopup.querySelector("#profile-edit-form");
+const profileEditForm = document.forms["profile-edit-form"];
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
@@ -114,7 +114,7 @@ function createCard(name, link) {
 
 const addCardPopup = document.querySelector(".add-card-form-popup");
 const addCardButton = document.querySelector(".profile__add-button");
-const addCardForm = addCardPopup.querySelector("#add-card-form");
+const addCardForm = document.forms["add-card-form"];
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
