@@ -47,7 +47,7 @@ const addCardPopup = document.querySelector(".add-card-form-popup");
 const addCardButton = document.querySelector(".profile__add-button");
 const addCardForm = addCardPopup.querySelector("#add-card-form");
 
-function onAddCardFormSubmit(evt) {
+function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   createCard(
     addCardForm.elements["name"].value,
@@ -59,7 +59,7 @@ function onAddCardFormSubmit(evt) {
 }
 
 addCardButton.addEventListener('click', () => openPoup(addCardPopup));
-addCardForm.addEventListener('submit', onAddCardFormSubmit);
+addCardForm.addEventListener('submit', handleAddCardFormSubmit);
 
 
 // попап "Редактировать профиль"
@@ -76,7 +76,7 @@ function openProfileEditPopup() {
   profileEditPopup.classList.add("popup_opened");
 }
 
-function onProfileFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = profileEditForm.elements["name"].value;
   profileDescription.textContent = profileEditForm.elements["description"].value;
@@ -84,7 +84,7 @@ function onProfileFormSubmit(evt) {
 }
 
 profileEditButton.addEventListener('click', () => openPoup(profileEditPopup));
-profileEditForm.addEventListener('submit', onProfileFormSubmit);
+profileEditForm.addEventListener('submit', handleProfileFormSubmit);
 
 // попап карточки "с картинкой"
 
