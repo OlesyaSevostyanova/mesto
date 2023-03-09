@@ -33,12 +33,21 @@
   <div class="popup profile-edit-form-popup">
     <div class="popup__container">
       <button class="popup__close-button" type="button" aria-label="Закрыть попап"></button>
-      <form class="popup__form" name="profile-edit-form" id="profile-edit-form">
+      <form class="popup__form" name="profile-edit-form" id="profile-edit-form" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input class="popup__form-input" type="text" name="name" placeholder="ваше имя" id="profile-form__name"
-          value="">
-        <input class="popup__form-input" type="text" name="description" placeholder="описание"
-          id="profile-form__description" value="">
+        <fieldset class="popup__form-fieldset" form="profile-edit-form" name="base-profile-fileds">
+          <legend class="popup__form-fieldset-legend">Основные поля профиля</legend>
+          <label class="popup__form-field">
+            <input class="popup__form-input" type="text" name="name" placeholder="ваше имя" id="profile-form__name"
+            value="" required minlength="2" maxlength="40">
+            <span class="popup__form-input-error profile-form__name-error"></span>
+          </label>
+          <label class="popup__form-field">
+            <input class="popup__form-input" type="text" name="description" placeholder="описание"
+            id="profile-form__description" value="" required minlength="2" maxlength="200">
+            <span class="popup__form-input-error profile-form__description-error"></span>
+          </label>
+        </fieldset>
         <button class="popup__submit-button" type="submit" aria-label="Сохранить форму">Сохранить</button>
       </form>
     </div>
@@ -46,12 +55,21 @@
   <div class="popup add-card-form-popup">
     <div class="popup__container">
       <button class="popup__close-button" type="button" aria-label="Закрыть попап"></button>
-      <form class="popup__form" name="add-card-form" id="add-card-form">
+      <form class="popup__form" name="add-card-form" id="add-card-form" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input class="popup__form-input" type="text" name="name" placeholder="Название" id="add-card-form__name"
-          value="">
-        <input class="popup__form-input" type="text" name="link" placeholder="Ссылка на картинку"
-          id="add-card-form__link" value="">
+        <fieldset class="popup__form-fieldset" form="add-card-form" name="base-card-fields">
+          <legend class="popup__form-fieldset-legend">Основные поля новой карточки</legend>
+          <label class="popup__form-field">
+            <input class="popup__form-input" type="text" name="name" placeholder="Название" id="add-card-form__name"
+              value="" required minlength="2" maxlength="30">
+            <span class="popup__form-input-error add-card-form__name-error"></span>           
+          </label>
+          <label class="popup__form-field">
+            <input class="popup__form-input" type="url" name="link" placeholder="Ссылка на картинку"
+              id="add-card-form__link" value="" required>
+            <span class="popup__form-input-error add-card-form__link-error"></span>
+          </label>
+        </fieldset>
         <button class="popup__submit-button" type="submit" aria-label="Создать место">Создать</button>
       </form>
     </div>

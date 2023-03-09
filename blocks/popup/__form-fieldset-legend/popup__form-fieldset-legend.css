@@ -1,0 +1,8 @@
+/* по рекомендации MDN legend - должен быть для Accessibility*/
+/* https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Text_labels_and_names#use_a_legend_to_label_a_fieldset */
+/* скрываем его визуально */
+
+.popup__form-fieldset-legend {
+  visibility: hidden;
+  position: absolute;
+}
