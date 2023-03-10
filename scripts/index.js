@@ -22,9 +22,14 @@ function closePopup(popup) {
 }
 
 document.querySelectorAll(".popup").forEach(popap => {
+  // между .popup и .popup__content есть .popup__container (реализующий grid) и кнопка закрытия popup
+  // popup__content изолирует клики в контенте от любого нажатия за его пределами
   popap.querySelector(".popup__content").addEventListener('click', evt => {
     evt.stopPropagation();
   });
+  // т.к. нажатие на кнопку закрытия и/или на пространство .popup__container (реализующего grid) 
+  // должно закрывать форму, вместо установки обработчиков на каждого из них "ловим" любые клики по ним на родителе
+  // который уже доступен тут - не надо дополнительно получать (тот-же .popup__container например)
   popap.addEventListener('click', () => closePopup(popap));
 });
 
