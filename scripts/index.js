@@ -40,6 +40,15 @@ const validationConfig = {
 
 // общие функция для всех попапов
 
+function handlePressEscape (evt) {
+  if (evt.key === 'Escape' || evt.key === 'Esc' || evt.keyCode === 27) {
+    const popup = document.querySelector('.popup_opened');
+    if (popup) {
+      closePopup(popup);
+    }
+  }
+}
+
 function openPoup(popup) {
   const form = popup.querySelector('.popup__form');
   const buttonElement = popup.querySelector('.popup__submit-button');
@@ -48,11 +57,15 @@ function openPoup(popup) {
     toggleButtonState(form, buttonElement, validationConfig);
   }
 
+  document.addEventListener('keyup', handlePressEscape);
+
   popup.classList.add("popup_opened");
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+
+  document.removeEventListener('keyup', handlePressEscape);
 }
 
 document.querySelectorAll(".popup").forEach(popap => {
