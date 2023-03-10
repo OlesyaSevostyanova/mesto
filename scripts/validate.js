@@ -32,16 +32,8 @@ const setFormInputEventListeners = (formFieldsList, buttonElement, formElement, 
   });
 };
 
-const hasInvalidInput = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputClassSelector));
-
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-}
-
 const toggleButtonState = (formElement, buttonElement, validationConfig) => {
-  if (hasInvalidInput(formElement)) {
+  if (!formElement.checkValidity()) {
     buttonElement.classList.add(validationConfig.submitButtonDisabledModifierClass);
     buttonElement.disabled = true;
   } else {
