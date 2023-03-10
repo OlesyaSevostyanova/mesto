@@ -11,22 +11,7 @@ const validationConfig = {
 
 // общие функция для всех попапов
 
-function handlePressEscape (evt) {
-  if (evt.key === 'Escape' || evt.key === 'Esc' || evt.keyCode === 27) {
-    closePopup(document.querySelector('.popup_opened'));
-  }
-}
-
 function openPoup(popup) {
-  const form = popup.querySelector('.popup__form');
-  const buttonElement = popup.querySelector('.popup__submit-button');
-
-  if (form && buttonElement) {
-    toggleButtonState(form, buttonElement, validationConfig);
-  }
-
-  document.addEventListener('keyup', handlePressEscape);
-
   popup.classList.add("popup_opened");
 }
 
@@ -43,10 +28,17 @@ document.querySelectorAll(".popup").forEach(popap => {
   popap.addEventListener('click', () => closePopup(popap));
 });
 
+const handlePressEscape = popup => (evt) => {
+  if (evt.key === 'Escape' || evt.key === 'Esc' || evt.keyCode === 27) {
+    closePopup(popup);
+  }
+}
+
 // попап "Редактировать профиль"
 
 const profileEditPopup = document.querySelector(".profile-edit-form-popup");
 const profileEditForm = document.forms["profile-edit-form"];
+const profileEditFormSubmitButton = profileEditForm.querySelector(".popup__submit-button");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
@@ -54,6 +46,8 @@ const profileDescription = document.querySelector(".profile__description");
 function handleProfileEditButtonClick() {
   profileEditForm.elements["name"].value = profileName.textContent;
   profileEditForm.elements["description"].value = profileDescription.textContent;
+  document.addEventListener('keyup', handlePressEscape(profileEditPopup));
+  toggleButtonState(profileEditForm, profileEditFormSubmitButton, validationConfig);
   openPoup(profileEditPopup);
 }
 
@@ -117,6 +111,7 @@ function createCard(name, link) {
 const addCardPopup = document.querySelector(".add-card-form-popup");
 const addCardButton = document.querySelector(".profile__add-button");
 const addCardForm = document.forms["add-card-form"];
+const addCardFormSubmitButton = addCardForm.querySelector(".popup__submit-button");
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
@@ -128,7 +123,12 @@ function handleAddCardFormSubmit(evt) {
   closePopup(addCardPopup);
 }
 
-addCardButton.addEventListener('click', () => openPoup(addCardPopup));
+addCardButton.addEventListener('click', () => {
+  document.addEventListener('keyup', handlePressEscape(addCardPopup));
+  toggleButtonState(addCardForm, addCardFormSubmitButton, validationConfig);
+  openPoup(addCardPopup);
+});
+
 addCardForm.addEventListener('submit', handleAddCardFormSubmit);
 
 // Заполняем стартовые карточки
