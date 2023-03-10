@@ -1,8 +1,0 @@
-.image-popup__container {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  grid-area: popup;
-  margin: 0;
-  padding: 0;
-}
