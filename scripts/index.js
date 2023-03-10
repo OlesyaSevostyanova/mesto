@@ -49,7 +49,11 @@ function closePopup(popup) {
 }
 
 document.querySelectorAll(".popup").forEach(popap => {
-  popap.querySelector(".popup__close-button").addEventListener('click', () => closePopup(popap));
+  popap.querySelector(".popup__content").addEventListener('click', evt => {
+    evt.preventDefault();
+    evt.stopPropagation();
+  });
+  popap.addEventListener('click', () => closePopup(popap));
 });
 
 // попап "Редактировать профиль"

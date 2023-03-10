@@ -38,6 +38,7 @@
 @import url(../blocks/popup/__form-input-error-message/popup__form-input-error-message.css);
 @import url(../blocks/popup/__form-input-error-message/_active/popup__form-input-error-message_active.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
