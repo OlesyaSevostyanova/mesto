@@ -13,6 +13,8 @@ const validationConfig = {
 
 function openPoup(popup) {
   popup.classList.add("popup_opened");
+
+  document.addEventListener('keyup', handlePressEscape(popup));
 }
 
 function closePopup(popup) {
@@ -51,7 +53,6 @@ const profileDescription = document.querySelector(".profile__description");
 function handleProfileEditButtonClick() {
   profileEditForm.elements["name"].value = profileName.textContent;
   profileEditForm.elements["description"].value = profileDescription.textContent;
-  document.addEventListener('keyup', handlePressEscape(profileEditPopup));
   toggleButtonState(profileEditForm, profileEditFormSubmitButton, validationConfig);
   openPoup(profileEditPopup);
 }
@@ -129,7 +130,6 @@ function handleAddCardFormSubmit(evt) {
 }
 
 addCardButton.addEventListener('click', () => {
-  document.addEventListener('keyup', handlePressEscape(addCardPopup));
   toggleButtonState(addCardForm, addCardFormSubmitButton, validationConfig);
   openPoup(addCardPopup);
 });
